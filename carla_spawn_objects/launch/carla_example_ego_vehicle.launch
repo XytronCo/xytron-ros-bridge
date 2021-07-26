@@ -1,0 +1,19 @@
+<!-- -->
+<launch>
+  <arg name="role_name" default="ego_vehicle"/>
+  <arg name="control_id" default="control"/>
+  <arg name="objects_definition_file" default='$(find carla_spawn_objects)/config/objects.json'/>
+  <arg name="spawn_sensors_only" default="false"/>
+
+
+  <include file="$(find carla_spawn_objects)/launch/carla_spawn_objects.launch">
+    <arg name="objects_definition_file" value='$(arg objects_definition_file)'/>
+    <arg name="spawn_sensors_only" value="$(arg spawn_sensors_only)" />
+  </include>
+
+  <!-- This nodes allows to respawn the vehicle <role_name> by publishing on topic /initialpose -->
+  <include file="$(find carla_spawn_objects)/launch/set_initial_pose.launch">
+    <arg name="role_name" value="$(arg role_name)"/>
+    <arg name="control_id" value="$(arg control_id)"/>
+  </include>
+</launch>
