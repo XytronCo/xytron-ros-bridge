@@ -12,7 +12,7 @@
   <arg name="spawn_sensors_only" value="false"/>
 
   <!-- Map to load on startup (either a predefined CARLA town (e.g. 'Town01'), or a OpenDRIVE map file) -->
-  <arg name="town" default=''/>
+  <arg name="town" default='Town03'/>
 
   <!-- Synchronous mode-->
   <arg name='synchronous_mode' default=''/>
